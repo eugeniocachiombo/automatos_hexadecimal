@@ -33,31 +33,7 @@ public class AutomatoFace extends javax.swing.JFrame {
 
                 //ESTADO 0
                 case 0:
-                    if (simbolo[i] == '0' || simbolo[i] == '1' || simbolo[i] == '2'
-                            || simbolo[i] == '3' || simbolo[i] == '4' || simbolo[i] == '5'
-                            || simbolo[i] == '6' || simbolo[i] == '7' || simbolo[i] == '8'
-                            || simbolo[i] == '9' || simbolo[i] == 'A' || simbolo[i] == 'B'
-                            || simbolo[i] == 'C' || simbolo[i] == 'D' || simbolo[i] == 'E'
-                            || simbolo[i] == 'F') {
-                        estado = 1;
-                        jTextPane1.setText(jTextPane1.getText() + "\nEstado actual: q" + estado + "");
-                        jTextPane1.setText(jTextPane1.getText() + "\n***************************");
-                    } else if (simbolo[i] == 'G' || simbolo[i] == 'H' || simbolo[i] == 'I'
-                            || simbolo[i] == 'J' || simbolo[i] == 'K' || simbolo[i] == 'L'
-                            || simbolo[i] == 'M' || simbolo[i] == 'N' || simbolo[i] == 'O'
-                            || simbolo[i] == 'P' || simbolo[i] == 'K' || simbolo[i] == 'R'
-                            || simbolo[i] == 'S' || simbolo[i] == 'T' || simbolo[i] == 'U'
-                            || simbolo[i] == 'V' || simbolo[i] == 'W' || simbolo[i] == 'X'
-                            || simbolo[i] == 'Y' || simbolo[i] == 'Z'
-                            || simbolo[i] == '.') {
-                        estado = 2;
-                        jTextPane1.setText(jTextPane1.getText() + "\nEstado actual: q" + estado + "");
-                        jTextPane1.setText(jTextPane1.getText() + "\n***************************");
-                    } else {
-                        erro = true;
-                        jLabel3.setText("\nO Simbolo '" + simbolo[i] + "' não pertence ao alfabeto Hexadecimal");
-                        jLabel3.setBackground(Color.red);
-                    }
+                    this.verificarEstado0(simbolo[i], estado, erro);
                     break;
                //FIM ESTADO 0
 
@@ -138,14 +114,42 @@ public class AutomatoFace extends javax.swing.JFrame {
                         jLabel3.setBackground(Color.white);
                     }
                     break;
-               //FIM ESTADO 4
+                //FIM ESTADO 4
             }//FIM Switch
         } //FIM for
 
         this.apresentarResultadoFinal(estado, erro);
     }
-    
-    public void apresentarResultadoFinal(int estado, boolean erro){
+
+    public void verificarEstado0(char simbolo, int estado, boolean erro) {
+        if (simbolo == '0' || simbolo == '1' || simbolo == '2'
+                || simbolo == '3' || simbolo == '4' || simbolo == '5'
+                || simbolo == '6' || simbolo == '7' || simbolo == '8'
+                || simbolo == '9' || simbolo == 'A' || simbolo == 'B'
+                || simbolo == 'C' || simbolo == 'D' || simbolo == 'E'
+                || simbolo == 'F') {
+            estado = 1;
+            jTextPane1.setText(jTextPane1.getText() + "\nEstado actual: q" + estado + "");
+            jTextPane1.setText(jTextPane1.getText() + "\n***************************");
+        } else if (simbolo == 'G' || simbolo == 'H' || simbolo == 'I'
+                || simbolo == 'J' || simbolo == 'K' || simbolo == 'L'
+                || simbolo == 'M' || simbolo == 'N' || simbolo == 'O'
+                || simbolo == 'P' || simbolo == 'K' || simbolo == 'R'
+                || simbolo == 'S' || simbolo == 'T' || simbolo == 'U'
+                || simbolo == 'V' || simbolo == 'W' || simbolo == 'X'
+                || simbolo == 'Y' || simbolo == 'Z'
+                || simbolo == '.') {
+            estado = 2;
+            jTextPane1.setText(jTextPane1.getText() + "\nEstado actual: q" + estado + "");
+            jTextPane1.setText(jTextPane1.getText() + "\n***************************");
+        } else {
+            erro = true;
+            jLabel3.setText("\nO Simbolo '" + simbolo + "' não pertence ao alfabeto Hexadecimal");
+            jLabel3.setBackground(Color.red);
+        }
+    }
+
+    public void apresentarResultadoFinal(int estado, boolean erro) {
         if (erro == true) {
 
         } else if (estado == 1 || estado == 4 && erro == false) {
