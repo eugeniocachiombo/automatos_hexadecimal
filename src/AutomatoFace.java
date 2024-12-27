@@ -139,10 +139,13 @@ public class AutomatoFace extends javax.swing.JFrame {
                     }
                     break;
                //FIM ESTADO 4
-
             }//FIM Switch
         } //FIM for
 
+        this.apresentarResultadoFinal(estado, erro);
+    }
+    
+    public void apresentarResultadoFinal(int estado, boolean erro){
         if (erro == true) {
 
         } else if (estado == 1 || estado == 4 && erro == false) {
