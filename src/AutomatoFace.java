@@ -10,13 +10,8 @@ public class AutomatoFace extends javax.swing.JFrame {
     }
 
     public void automato(String valor) {
-        /*
-         TEMOS:
-         estado
-         valor
-         simbolo
-         ALFABETO É (0, 1)
-         */
+      
+        // TEMOS: estado, valor, simbolo, ALFABETO É (0, 1)
 
         int estado = 0; //Estado Inicial
         Boolean erro = false;
